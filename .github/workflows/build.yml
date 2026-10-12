@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, X64]
 
     env:
       UBOOT_BRANCH: ${{ github.head_ref || github.ref_name }}
@@ -246,7 +246,7 @@ jobs:
             ${{ matrix.board }}_*.img.gz
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, X64]
     needs: build
 
     steps:
